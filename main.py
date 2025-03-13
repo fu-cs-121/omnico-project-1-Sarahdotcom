@@ -1,77 +1,52 @@
-# =============================================================================
-# OmniCo Confidential
-# -------------------
-# This source code contains proprietary information of OmniCo.
-# =============================================================================
+# Open the file and read its contents
+with open('euphoria_data.csv', 'r') as data_file:
+    column_headers = data_file.readline().strip().split(',')  # Read and process header
+    user_sessions = [line.strip().split(',') for line in data_file]  # Read all data
 
-def main():
-    # Initialize the stats dictionary for each algorithm
-    stats = {
-        'JoyStream': {
-            'total_happiness': 0,
-            'total_duration': 0,
-            'session_count': 0
-        },
-        'SerenityFlow': {
-            'total_happiness': 0,
-            'total_duration': 0,
-            'session_count': 0
-        },
-        'DeepPulse': {
-            'total_happiness': 0,
-            'total_duration': 0,
-            'session_count': 0
-        }
-    }
+# Initialize statistics dictionary
+engagement_stats = {algorithm: {'total_happiness': 0, 'total_duration': 0, 'session_count': 0} 
+                     for algorithm in ['JoyStream', 'SerenityFlow', 'DeepPulse']}
 
-    # Open the CSV file and read data
-    with open('euphoria_data.csv', 'r') as file:
-        # Skip the header line
-        header = file.readline()
+# Process data
+for session in user_sessions:
+    algorithm, session_duration, happiness_score = session[1], int(session[2]), int(session[3])
+    engagement_stats[algorithm]['session_count'] += 1
+    engagement_stats[algorithm]['total_duration'] += session_duration
+    engagement_stats[algorithm]['total_happiness'] += happiness_score
 
-        # Read each line in the file
-        for line in file:
-            # Remove any trailing whitespace characters like newline
-            line = line.strip()
+# Calculate averages
+average_metrics = {
+    algorithm: {
+        'avg_happiness': engagement_stats[algorithm]['total_happiness'] / engagement_stats[algorithm]['session_count'],
+        'avg_duration': engagement_stats[algorithm]['total_duration'] / engagement_stats[algorithm]['session_count']
+    } for algorithm in engagement_stats
+}
 
-            # Split the line into a list of values
-            columns = line.split(',')
+# Display Report
+print('Euphoria User Engagement Analysis Report')
+print('----------------------------------------\n')
 
-            # Assign each column to a variable
-            user_id = columns[0]
-            algorithm = columns[1]
+print('Average Happiness Rating per Algorithm:')
+for algorithm in engagement_stats:
+    print(f'- {algorithm}: {average_metrics[algorithm]["avg_happiness"]:.2f}')
+print()
 
-            # TODO: Define session_duration and happiness_rating variables and convert them to integers
-            # Hint: Use the int() function to convert strings to integers
-            # session_duration = ?
-            # happiness_rating = ?
+print('Total Number of Sessions per Algorithm:')
+for algorithm in engagement_stats:
+    print(f'- {algorithm}: {engagement_stats[algorithm]["session_count"]}')
+print()
 
-            # Update stats based on the algorithm
-            if algorithm in stats:
-                stats[algorithm]['total_happiness'] += happiness_rating
-                stats[algorithm]['total_duration'] += session_duration
-                stats[algorithm]['session_count'] += 1
-            else:
-                # Handle any unexpected algorithm names
-                print(f"Unknown algorithm: {algorithm}")
+print('Average Session Duration per Algorithm:')
+for algorithm in engagement_stats:
+    print(f'- {algorithm}: {average_metrics[algorithm]["avg_duration"]:.2f} minutes')
+print()
 
-    # TODO: Calculate averages for each algorithm
-    # For each algorithm in the stats dictionary:
-    #   - Calculate avg_happiness = total_happiness / session_count
-    #   - Calculate avg_duration = total_duration / session_count
-    #   - Store these back into the stats dictionary under 'avg_happiness' and 'avg_duration'
+# Determine highest happiness and longest duration
+most_happy_algorithm = max(average_metrics, key=lambda x: average_metrics[x]['avg_happiness'])
+longest_session_algorithm = max(average_metrics, key=lambda x: average_metrics[x]['avg_duration'])
 
-    # TODO: Determine the algorithm with the highest average happiness rating
-    # Initialize variables to keep track of the highest average happiness and the corresponding algorithm
-    # Loop through stats to compare avg_happiness values
+print(f'Highest Average Happiness Rating:')
+print(f'- {most_happy_algorithm} with an average happiness rating of {average_metrics[most_happy_algorithm]["avg_happiness"]:.2f}\n')
 
-    # TODO: Determine the algorithm with the longest average session duration
-    # Initialize variables to keep track of the longest average duration and the corresponding algorithm
-    # Loop through stats to compare avg_duration values
-
-    # TODO: Print the report
-    # Use print statements to display the results in a formatted way
-    # Follow the structure provided in the example output
-
-if __name__ == "__main__":
-    main()
+print(f'Longest Average Session Duration:')
+print(f'- {longest_session_algorithm} with an average session duration of {average_metrics[longest_session_algorithm]["avg_duration"]:.2f} minutes')
