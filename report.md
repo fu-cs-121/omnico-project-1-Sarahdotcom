@@ -40,11 +40,11 @@
 
 ## Observations and Insights
 
-[Joystream had the highest happiness rating, while deepulse had the longest sessions but lower satisfaction, suggesting potential user fatigue. Anomalies in session lengths highlight possible engagement issues. Ethically, deepulse may require adjustments for a better user experience.] 
+[Joystream had the highest happiness rating, deepulse had the longest sessions but lower satisfaction, which could indicate user fatigue. Anomalies in session lengths highlight possible engagement issues. Ethically, deepulse may require adjustments for a better user experience.] 
 
 ## Conclusions and Recommendations
 
-[Summarize your conclusions based on the results. Provide any recommendations for next steps or further analysis.]
+[Joystream delivers the highest user satisfaction, while deepulse maintains longer sessions with lower happiness. To improve engagement, deepulse may require some adjustments to for a better user experience.] 
 
 ---
 
