@@ -1,6 +1,6 @@
 # Euphoria User Engagement Analysis Report
 
-**Author:** [Your Name]  
+**Author:** [Sarah Iqbal]  
 **Date:** [Submission Date]
 
 ---
