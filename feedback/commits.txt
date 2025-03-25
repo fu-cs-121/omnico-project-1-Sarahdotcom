@@ -1,0 +1,1365 @@
+commit ea8216c0d6b172d7240af7e95ebb453a4fa713dc
+Author: Sarahdotcom <iqbasa4@furman.edu>
+Date:   Thu Mar 13 14:55:28 2025 -0400
+
+    all done
+
+diff --git a/report.md b/report.md
+index 8030c27..07020c4 100644
+--- a/report.md
++++ b/report.md
+@@ -40,11 +40,11 @@
+ 
+ ## Observations and Insights
+ 
+-[Joystream had the highest happiness rating, while deepulse had the longest sessions but lower satisfaction, suggesting potential user fatigue. Anomalies in session lengths highlight possible engagement issues. Ethically, deepulse may require adjustments for a better user experience.] 
++[Joystream had the highest happiness rating, deepulse had the longest sessions but lower satisfaction, which could indicate user fatigue. Anomalies in session lengths highlight possible engagement issues. Ethically, deepulse may require adjustments for a better user experience.] 
+ 
+ ## Conclusions and Recommendations
+ 
+-[Summarize your conclusions based on the results. Provide any recommendations for next steps or further analysis.]
++[Joystream delivers the highest user satisfaction, while deepulse maintains longer sessions with lower happiness. To improve engagement, deepulse may require some adjustments to for a better user experience.] 
+ 
+ ---
+ 
+
+commit bdd938c9f4c62ddff531bc8c0ff1b185d9d10357
+Author: Sarahdotcom <iqbasa4@furman.edu>
+Date:   Thu Mar 13 14:52:44 2025 -0400
+
+    report done
+
+diff --git a/report.md b/report.md
+index b8c57ff..8030c27 100644
+--- a/report.md
++++ b/report.md
+@@ -1,45 +1,46 @@
+ # Euphoria User Engagement Analysis Report
+ 
+ **Author:** [Sarah Iqbal]  
+-**Date:** [Submission Date]
++**Date:** [ Tue March 13 ]
+ 
+ ---
+ 
+ ## Introduction
+ 
+-[Provide a brief overview of the project objectives and the importance of the analysis.]
++[ The project makes us evaluate and analyse uder engagement with joystream, serenity and deepulse. The main goal is to identiy the most efficient and effective algorithm. ]
+ 
+ ## Methodology
+ 
+-[Describe the steps you took to perform the analysis, including any calculations and reasoning behind them.]
++[ Read data from euphoria_data.csv, organized session details and calculate total and average session]
+ 
+ ## Results
+ 
+ - **Average Happiness Rating per Algorithm**
+ 
+-  - JoyStream: ...
+-  - SerenityFlow: ...
+-  - DeepPulse: ...
++- JoyStream: 8.50
++- SerenityFlow: 7.00
++- DeepPulse: 5.00
++
+ 
+ - **Total Number of Sessions per Algorithm**
+ 
+-  - JoyStream: ...
+-  - SerenityFlow: ...
+-  - DeepPulse: ...
++- JoyStream: 4
++- SerenityFlow: 3
++- DeepPulse: 3
+ 
+ - **Average Session Duration per Algorithm**
+ 
+-  - JoyStream: ... minutes
+-  - SerenityFlow: ... minutes
+-  - DeepPulse: ... minutes
++  - JoyStream: 37.50 minutes
++- SerenityFlow: 30.00 minutes
++- DeepPulse: 45.00 minutes
+ 
+ - **Highest and Lowest Performers**
+-  - Highest Average Happiness Rating: ...
+-  - Longest Average Session Duration: ...
++  - Highest Average Happiness Rating: 8.50
++  - Longest Average Session Duration: 45.00
+ 
+ ## Observations and Insights
+ 
+-[Discuss any patterns, anomalies, or noteworthy findings from your analysis. Include any ethical considerations or unexpected results, especially related to the DeepPulse algorithm.]
++[Joystream had the highest happiness rating, while deepulse had the longest sessions but lower satisfaction, suggesting potential user fatigue. Anomalies in session lengths highlight possible engagement issues. Ethically, deepulse may require adjustments for a better user experience.] 
+ 
+ ## Conclusions and Recommendations
+ 
+
+commit 4caaa43bd8c293e97b67b9aec6dc9d92db065623
+Author: Sarahdotcom <iqbasa4@furman.edu>
+Date:   Thu Mar 13 14:19:51 2025 -0400
+
+    all done
+
+diff --git a/main.py b/main.py
+index 3dfaec2..58ebb10 100644
+--- a/main.py
++++ b/main.py
+@@ -1,77 +1,52 @@
+-# =============================================================================
+-# OmniCo Confidential
+-# -------------------
+-# This source code contains proprietary information of OmniCo.
+-# =============================================================================
+-
+-def main():
+-    # Initialize the stats dictionary for each algorithm
+-    stats = {
+-        'JoyStream': {
+-            'total_happiness': 0,
+-            'total_duration': 0,
+-            'session_count': 0
+-        },
+-        'SerenityFlow': {
+-            'total_happiness': 0,
+-            'total_duration': 0,
+-            'session_count': 0
+-        },
+-        'DeepPulse': {
+-            'total_happiness': 0,
+-            'total_duration': 0,
+-            'session_count': 0
+-        }
+-    }
+-
+-    # Open the CSV file and read data
+-    with open('euphoria_data.csv', 'r') as file:
+-        # Skip the header line
+-        header = file.readline()
+-
+-        # Read each line in the file
+-        for line in file:
+-            # Remove any trailing whitespace characters like newline
+-            line = line.strip()
+-
+-            # Split the line into a list of values
+-            columns = line.split(',')
+-
+-            # Assign each column to a variable
+-            user_id = columns[0]
+-            algorithm = columns[1]
+-
+-            # TODO: Define session_duration and happiness_rating variables and convert them to integers
+-            # Hint: Use the int() function to convert strings to integers
+-            # session_duration = ?
+-            # happiness_rating = ?
+-
+-            # Update stats based on the algorithm
+-            if algorithm in stats:
+-                stats[algorithm]['total_happiness'] += happiness_rating
+-                stats[algorithm]['total_duration'] += session_duration
+-                stats[algorithm]['session_count'] += 1
+-            else:
+-                # Handle any unexpected algorithm names
+-                print(f"Unknown algorithm: {algorithm}")
+-
+-    # TODO: Calculate averages for each algorithm
+-    # For each algorithm in the stats dictionary:
+-    #   - Calculate avg_happiness = total_happiness / session_count
+-    #   - Calculate avg_duration = total_duration / session_count
+-    #   - Store these back into the stats dictionary under 'avg_happiness' and 'avg_duration'
+-
+-    # TODO: Determine the algorithm with the highest average happiness rating
+-    # Initialize variables to keep track of the highest average happiness and the corresponding algorithm
+-    # Loop through stats to compare avg_happiness values
+-
+-    # TODO: Determine the algorithm with the longest average session duration
+-    # Initialize variables to keep track of the longest average duration and the corresponding algorithm
+-    # Loop through stats to compare avg_duration values
+-
+-    # TODO: Print the report
+-    # Use print statements to display the results in a formatted way
+-    # Follow the structure provided in the example output
+-
+-if __name__ == "__main__":
+-    main()
+\ No newline at end of file
++# Open the file and read its contents
++with open('euphoria_data.csv', 'r') as data_file:
++    column_headers = data_file.readline().strip().split(',')  # Read and process header
++    user_sessions = [line.strip().split(',') for line in data_file]  # Read all data
++
++# Initialize statistics dictionary
++engagement_stats = {algorithm: {'total_happiness': 0, 'total_duration': 0, 'session_count': 0} 
++                     for algorithm in ['JoyStream', 'SerenityFlow', 'DeepPulse']}
++
++# Process data
++for session in user_sessions:
++    algorithm, session_duration, happiness_score = session[1], int(session[2]), int(session[3])
++    engagement_stats[algorithm]['session_count'] += 1
++    engagement_stats[algorithm]['total_duration'] += session_duration
++    engagement_stats[algorithm]['total_happiness'] += happiness_score
++
++# Calculate averages
++average_metrics = {
++    algorithm: {
++        'avg_happiness': engagement_stats[algorithm]['total_happiness'] / engagement_stats[algorithm]['session_count'],
++        'avg_duration': engagement_stats[algorithm]['total_duration'] / engagement_stats[algorithm]['session_count']
++    } for algorithm in engagement_stats
++}
++
++# Display Report
++print('Euphoria User Engagement Analysis Report')
++print('----------------------------------------\n')
++
++print('Average Happiness Rating per Algorithm:')
++for algorithm in engagement_stats:
++    print(f'- {algorithm}: {average_metrics[algorithm]["avg_happiness"]:.2f}')
++print()
++
++print('Total Number of Sessions per Algorithm:')
++for algorithm in engagement_stats:
++    print(f'- {algorithm}: {engagement_stats[algorithm]["session_count"]}')
++print()
++
++print('Average Session Duration per Algorithm:')
++for algorithm in engagement_stats:
++    print(f'- {algorithm}: {average_metrics[algorithm]["avg_duration"]:.2f} minutes')
++print()
++
++# Determine highest happiness and longest duration
++most_happy_algorithm = max(average_metrics, key=lambda x: average_metrics[x]['avg_happiness'])
++longest_session_algorithm = max(average_metrics, key=lambda x: average_metrics[x]['avg_duration'])
++
++print(f'Highest Average Happiness Rating:')
++print(f'- {most_happy_algorithm} with an average happiness rating of {average_metrics[most_happy_algorithm]["avg_happiness"]:.2f}\n')
++
++print(f'Longest Average Session Duration:')
++print(f'- {longest_session_algorithm} with an average session duration of {average_metrics[longest_session_algorithm]["avg_duration"]:.2f} minutes')
+
+commit 1560064ac5f6a822ca3e5ebfe6c16c0e38e8f31b
+Author: Sarahdotcom <iqbasa4@furman.edu>
+Date:   Thu Mar 13 12:36:41 2025 -0400
+
+    name added
+
+diff --git a/report.md b/report.md
+index dfb5ceb..b8c57ff 100644
+--- a/report.md
++++ b/report.md
+@@ -1,6 +1,6 @@
+ # Euphoria User Engagement Analysis Report
+ 
+-**Author:** [Your Name]  
++**Author:** [Sarah Iqbal]  
+ **Date:** [Submission Date]
+ 
+ ---
+
+commit e428daee01ffed3bc14068ccd62cba68d78e10d8
+Author: github-classroom[bot] <66690702+github-classroom[bot]@users.noreply.github.com>
+Date:   Tue Feb 25 20:30:46 2025 +0000
+
+    Initial commit
+
+diff --git a/codex.md b/codex.md
+new file mode 100644
+index 0000000..75ed170
+--- /dev/null
++++ b/codex.md
+@@ -0,0 +1,714 @@
++# OmniCodex: Essential Python Guide for Data Analysis
++
++Welcome to the **OmniCodex**, your comprehensive guide to mastering the fundamental Python concepts needed for data analysis at OmniCo. This guide is designed to help you navigate through your projects with confidence, providing clear explanations and code examples that you can apply to your work.
++
++---
++
++## Table of Contents
++
++1. [Reading and Writing Files](#1-reading-and-writing-files)
++2. [String Manipulation](#2-string-manipulation)
++3. [Working with Data Structures](#3-working-with-data-structures)
++4. [Control Flow Statements](#4-control-flow-statements)
++5. [Loops and Iteration](#5-loops-and-iteration)
++6. [Performing Calculations](#6-performing-calculations)
++7. [Formatting and Printing Output](#7-formatting-and-printing-output)
++8. [Error Handling](#8-error-handling)
++9. [Best Practices](#9-best-practices)
++10. [Additional Tips](#10-additional-tips)
++11. [Conclusion](#11-conclusion)
++
++---
++
++## 1. Reading and Writing Files
++
++### Reading Files
++
++To process data stored in files, you'll need to read the file content into your program.
++
++**Example: Reading a file line by line**
++
++```python
++# Open the file in read mode
++with open('data.txt', 'r') as file:
++    # Iterate over each line in the file
++    for line in file:
++        # Process the line
++        print(line)
++```
++
++- **Note:** Using `with open()` ensures the file is properly closed after its contents have been processed.
++
++### Skipping Header Rows
++
++When reading CSV files, you might need to skip the header row.
++
++**Example: Skipping the header**
++
++```python
++with open('data.csv', 'r') as file:
++    # Read the header line
++    header = file.readline()
++    # Process the remaining lines
++    for line in file:
++        # Process the line
++        print(line)
++```
++
++### Reading and Processing CSV Files
++
++Often, data is stored in CSV (Comma-Separated Values) files. You can read and process CSV files by splitting each line into fields.
++
++**Example: Reading a CSV file and processing data**
++
++```python
++# Open the CSV file
++with open('employees.csv', 'r') as file:
++    # Read and discard the header line
++    header = file.readline()
++    # Process each line in the file
++    for line in file:
++        # Remove leading/trailing whitespace characters (including newline)
++        line = line.strip()
++        # Split the line into a list of values based on commas
++        fields = line.split(',')
++        # Access individual fields
++        employee_id = fields[0]
++        name = fields[1]
++        department = fields[2]
++        salary = fields[3]
++        # Output the processed data
++        print(f"ID: {employee_id}, Name: {name}, Department: {department}, Salary: {salary}")
++```
++
++**Sample `employees.csv` content:**
++
++```
++EmployeeID,Name,Department,Salary
++E001,Alice Smith,Sales,75000
++E002,Bob Johnson,Engineering,82000
++E003,Charlie Lee,Marketing,68000
++```
++
++**Output of the code:**
++
++```
++ID: E001, Name: Alice Smith, Department: Sales, Salary: 75000
++ID: E002, Name: Bob Johnson, Department: Engineering, Salary: 82000
++ID: E003, Name: Charlie Lee, Department: Marketing, Salary: 68000
++```
++
++- **Explanation:**
++  - `line.strip()` removes any leading/trailing whitespace, including newline characters.
++  - `fields = line.split(',')` splits the line into a list of values.
++  - `fields[0]` accesses the first element in the list (EmployeeID).
++  - `fields[1:]` accesses elements from index 1 to the end (Name, Department, Salary).
++
++### Slicing Lists
++
++You can access specific parts of a list using slicing.
++
++**Example: Accessing parts of a list**
++
++```python
++fields = ['E001', 'Alice Smith', 'Sales', '75000']
++
++# Access the first field
++employee_id = fields[0]  # 'E001'
++
++# Access all fields except the first
++other_fields = fields[1:]  # ['Alice Smith', 'Sales', '75000']
++```
++
++- **Explanation:**
++  - `fields[0]` retrieves the first item in the list.
++  - `fields[1:]` slices the list from index 1 to the end.
++
++### Writing Files
++
++To output data or results to a file, you can write to a file using the following pattern:
++
++**Example: Writing data to a file**
++
++```python
++# Open the file in write mode
++with open('output.txt', 'w') as file:
++    # Write data to the file
++    file.write('Hello, OmniCo!\n')
++    file.write('Data analysis complete.')
++```
++
++---
++
++## 2. String Manipulation
++
++### Stripping Whitespace
++
++When reading lines from a file, you may need to remove extra whitespace characters like newline (`\n`).
++
++**Example: Removing trailing whitespace**
++
++```python
++line = line.strip()
++```
++
++### Splitting Strings
++
++To break a string into a list of substrings based on a delimiter (e.g., commas in a CSV file), use the `split()` method.
++
++**Example: Splitting a comma-separated string**
++
++```python
++data = 'apple,banana,cherry'
++fruits = data.split(',')  # ['apple', 'banana', 'cherry']
++```
++
++### Converting Strings to Numbers
++
++Data read from files is often in string format. To perform calculations, convert strings to integers or floats.
++
++**Example: Converting strings to numeric types**
++
++```python
++number_str = '42'
++number_int = int(number_str)      # 42 as an integer
++number_float = float(number_str)  # 42.0 as a float
++```
++
++---
++
++## 3. Working with Data Structures
++
++### Lists
++
++A list is an ordered collection of items.
++
++**Example: Creating and accessing a list**
++
++```python
++# Create a list of departments
++departments = ['Sales', 'Engineering', 'Marketing', 'HR']
++
++# Access the first department
++first_department = departments[0]  # 'Sales'
++
++# Access departments from index 1 to the end
++remaining_departments = departments[1:]  # ['Engineering', 'Marketing', 'HR']
++```
++
++### Sorting Lists
++
++You can sort lists in ascending or descending order using the `sort()` method or the `sorted()` function.
++
++**Example: Sorting a list of numbers**
++
++```python
++# List of numbers
++numbers = [5, 2, 9, 1, 5, 6]
++
++# Sort the list in ascending order
++numbers.sort()
++print(numbers)  # [1, 2, 5, 5, 6, 9]
++
++# Alternatively, using sorted()
++numbers = [5, 2, 9, 1, 5, 6]
++sorted_numbers = sorted(numbers)
++print(sorted_numbers)  # [1, 2, 5, 5, 6, 9]
++```
++
++**Example: Sorting a list of strings**
++
++```python
++# List of department names
++departments = ['Sales', 'Engineering', 'Marketing', 'HR']
++
++# Sort the list alphabetically
++departments.sort()
++print(departments)  # ['Engineering', 'HR', 'Marketing', 'Sales']
++```
++
++**Sorting in Descending Order**
++
++Use the `reverse=True` parameter to sort in descending order.
++
++```python
++numbers = [5, 2, 9, 1, 5, 6]
++numbers.sort(reverse=True)
++print(numbers)  # [9, 6, 5, 5, 2, 1]
++```
++
++### Dictionaries
++
++A dictionary stores data in key-value pairs.
++
++**Example: Creating and using a dictionary**
++
++```python
++# Create a dictionary of employee IDs and names
++employees = {
++    'E001': 'Alice Smith',
++    'E002': 'Bob Johnson',
++    'E003': 'Charlie Lee'
++}
++
++# Access a value by key
++employee_name = employees['E001']  # 'Alice Smith'
++```
++
++### Sorting Dictionaries
++
++By default, dictionaries in Python 3.7+ maintain insertion order. If you want to get sorted keys or values from a dictionary, you can create a sorted list.
++
++**Example: Sorting dictionary keys**
++
++```python
++# Get a list of sorted employee IDs
++sorted_employee_ids = sorted(employees.keys())
++print(sorted_employee_ids)  # ['E001', 'E002', 'E003']
++```
++
++**Example: Sorting dictionary values**
++
++```python
++# Get a list of sorted employee names
++sorted_employee_names = sorted(employees.values())
++print(sorted_employee_names)  # ['Alice Smith', 'Bob Johnson', 'Charlie Lee']
++```
++
++### Nested Dictionaries
++
++Dictionaries can contain other dictionaries as values.
++
++**Example: Nested dictionary**
++
++```python
++# Create a dictionary of employees with their details
++employees = {
++    'E001': {'name': 'Alice Smith', 'department': 'Sales', 'salary': 75000},
++    'E002': {'name': 'Bob Johnson', 'department': 'Engineering', 'salary': 82000},
++    'E003': {'name': 'Charlie Lee', 'department': 'Marketing', 'salary': 68000}
++}
++
++# Access nested values
++alice_department = employees['E001']['department']  # 'Sales'
++```
++
++### Sorting a List of Dictionaries by a Key
++
++If you have a list of dictionaries and want to sort it based on a specific key, you can use the `sorted()` function with a `key` parameter.
++
++**Example: Sorting a list of dictionaries by salary**
++
++```python
++# List of employee dictionaries
++employee_list = [
++    {'name': 'Alice Smith', 'department': 'Sales', 'salary': 75000},
++    {'name': 'Bob Johnson', 'department': 'Engineering', 'salary': 82000},
++    {'name': 'Charlie Lee', 'department': 'Marketing', 'salary': 68000}
++]
++
++# Sort the list by salary in ascending order
++sorted_employee_list = sorted(employee_list, key=lambda x: x['salary'])
++
++# Print the sorted list
++for employee in sorted_employee_list:
++    print(f"{employee['name']}: ${employee['salary']}")
++```
++
++**Output:**
++
++```
++Charlie Lee: $68000
++Alice Smith: $75000
++Bob Johnson: $82000
++```
++
++- **Explanation:**
++  - `sorted()` takes the list and a `key` function that tells it how to compare items.
++  - `key=lambda x: x['salary']` means we sort based on the `'salary'` key in each dictionary.
++
++**Sorting in Descending Order**
++
++To sort the list in descending order, add `reverse=True`:
++
++```python
++# Sort the list by salary in descending order
++sorted_employee_list = sorted(employee_list, key=lambda x: x['salary'], reverse=True)
++```
++
++### Updating Nested Dictionaries
++
++You can update values within a nested dictionary by specifying the keys in sequence.
++
++**Example: Updating a nested dictionary**
++
++```python
++# Update Bob's salary
++employees['E002']['salary'] = 85000
++
++# Add a new key-value pair to Charlie's details
++employees['E003']['email'] = 'charlie.lee@omnico.com'
++```
++
++- **Note:** If the key does not exist, it will be added to the dictionary.
++
++### Extracting Keys and Values as Lists
++
++You can extract all the keys or values from a dictionary and convert them into a list.
++
++**Example: Getting a list of employee IDs**
++
++```python
++# Get a list of employee IDs
++employee_ids = list(employees.keys())  # ['E001', 'E002', 'E003']
++```
++
++---
++
++## 4. Control Flow Statements
++
++### If Statements
++
++Use `if`, `elif`, and `else` to execute code based on conditions.
++
++**Example: Checking employee performance**
++
++```python
++sales = 120000
++
++if sales >= 100000:
++    print('Excellent performance')
++elif sales >= 70000:
++    print('Good performance')
++else:
++    print('Needs improvement')
++```
++
++---
++
++## 5. Loops and Iteration
++
++### For Loops
++
++Use `for` loops to iterate over sequences like lists or dictionaries.
++
++**Example: Iterating over a list**
++
++```python
++departments = ['Sales', 'Engineering', 'Marketing']
++
++for dept in departments:
++    print(dept)
++```
++
++### Iterating Over Dictionaries
++
++When iterating over dictionaries, you can access keys and values.
++
++**Example: Iterating over dictionary items**
++
++```python
++employees = {
++    'E001': 'Alice Smith',
++    'E002': 'Bob Johnson',
++    'E003': 'Charlie Lee'
++}
++
++for emp_id, name in employees.items():
++    print(f'ID: {emp_id}, Name: {name}')
++```
++
++### Looping Through Nested Dictionaries and Computing Values
++
++You can loop through a nested dictionary to perform calculations and update the dictionary.
++
++**Example: Calculating bonuses and adding them to the dictionary**
++
++```python
++# Existing nested dictionary of employees and their salaries
++employees = {
++    'E001': {'name': 'Alice Smith', 'department': 'Sales', 'salary': 75000},
++    'E002': {'name': 'Bob Johnson', 'department': 'Engineering', 'salary': 85000},
++    'E003': {'name': 'Charlie Lee', 'department': 'Marketing', 'salary': 68000}
++}
++
++# Loop through each employee to calculate bonuses
++for emp_id, details in employees.items():
++    salary = details['salary']
++    # Calculate bonus: 10% of salary
++    bonus = salary * 0.10
++    # Add the bonus to the employee's details
++    details['bonus'] = bonus
++
++# The employees dictionary now includes the bonus amount
++print(employees)
++```
++
++**Output:**
++
++```python
++{
++    'E001': {'name': 'Alice Smith', 'department': 'Sales', 'salary': 75000, 'bonus': 7500.0},
++    'E002': {'name': 'Bob Johnson', 'department': 'Engineering', 'salary': 85000, 'bonus': 8500.0},
++    'E003': {'name': 'Charlie Lee', 'department': 'Marketing', 'salary': 68000, 'bonus': 6800.0}
++}
++```
++
++- **Explanation:**
++  - For each employee, we calculated a bonus equal to 10% of their salary.
++  - We added a new key `'bonus'` to each employee's dictionary.
++
++### While Loops
++
++Use `while` loops to execute a block of code as long as a condition is true.
++
++**Example: Using a while loop**
++
++```python
++count = 0
++while count < 5:
++    print(f'Count is {count}')
++    count += 1
++```
++
++### Using Break Statements
++
++The `break` statement exits the nearest enclosing loop.
++
++**Example: Exiting a loop early**
++
++```python
++for number in range(10):
++    if number == 5:
++        break  # Exit the loop when number is 5
++    print(number)
++```
++
++---
++
++## 6. Performing Calculations
++
++### Basic Arithmetic Operations
++
++You can perform arithmetic operations using `+`, `-`, `*`, `/`, and `%`.
++
++**Example: Calculating the average salary**
++
++```python
++total_salary = 228000
++number_of_employees = 3
++average_salary = total_salary / number_of_employees  # 76000.0
++```
++
++### Using min() and max() Functions
++
++The `min()` and `max()` functions return the smallest and largest of the input values, respectively.
++
++**Example: Limiting salary increases**
++
++```python
++increase = 5000
++max_increase = 4000
++adjusted_increase = min(increase, max_increase)  # adjusted_increase is 4000
++```
++
++**Example: Ensuring a minimum bonus**
++
++```python
++bonus = 2000
++min_bonus = 2500
++adjusted_bonus = max(bonus, min_bonus)  # adjusted_bonus is 2500
++```
++
++### Calculating Percentage Increases
++
++**Example: Calculating the percentage increase in sales**
++
++```python
++previous_sales = 100000
++current_sales = 125000
++increase = current_sales - previous_sales
++percentage_increase = (increase / previous_sales) * 100  # 25.0%
++```
++
++### Avoiding Division by Zero
++
++Always ensure the denominator is not zero before dividing.
++
++**Example: Safe division**
++
++```python
++if number_of_employees != 0:
++    average_salary = total_salary / number_of_employees
++else:
++    average_salary = 0  # Handle the zero division case appropriately
++```
++
++### Casting Values During Calculations
++
++When performing calculations that result in float values, you may need to cast them to integers.
++
++**Example: Converting a float to an integer**
++
++```python
++value = 76.75
++integer_value = int(value)  # 76
++```
++
++- **Note:** Casting to `int` truncates the decimal part.
++
++---
++
++## 7. Formatting and Printing Output
++
++### Using the Print Function
++
++Display information using the `print()` function.
++
++**Example: Printing a message**
++
++```python
++print('Welcome to OmniCo!')
++```
++
++### String Formatting
++
++Format strings to include variables and control numeric precision.
++
++**Example: Using f-strings**
++
++```python
++name = 'Alice'
++salary = 75000
++
++print(f'{name} has a salary of ${salary:.2f}')  # 'Alice has a salary of $75000.00'
++```
++
++- `:.2f` formats the number to two decimal places.
++
++### Formatting Strings for Files
++
++When writing formatted data to a file, you can use f-strings and special characters like `\n` (newline) and `\t` (tab).
++
++**Example: Writing formatted text to a file**
++
++```python
++with open('employee_report.txt', 'w') as file:
++    file.write('Employee Report\n')
++    file.write('---------------\n')
++    file.write('ID\tName\t\t\tDepartment\tSalary\n')
++    for emp_id, data in employees.items():
++        line = f"{emp_id}\t{data['name']}\t{data['department']}\t${data['salary']}\n"
++        file.write(line)
++```
++
++### Aligning Text Output
++
++You can use formatting options to align text and numbers.
++
++**Example: Formatting with alignment**
++
++```python
++# Left-align text and format numbers with precision
++line = f"{emp_id:<5}{data['name']:<20}{data['department']:<15}${data['salary']:>10.2f}\n"
++```
++
++- `<` : Left-align within the available space.
++- `>` : Right-align within the available space.
++- `.2f` : Format the number with two decimal places.
++
++---
++
++## 8. Error Handling
++
++### Handling Exceptions
++
++Use `try` and `except` blocks to handle potential errors.
++
++**Example: Handling ValueError**
++
++```python
++value = 'abc'
++
++try:
++    number = int(value)
++except ValueError:
++    print('Cannot convert to integer.')
++```
++
++---
++
++## 9. Best Practices
++
++### Writing Readable Code
++
++- Use meaningful variable names.
++- Keep code organized and properly indented.
++- Break down complex problems into smaller, manageable pieces.
++
++### Commenting Your Code
++
++- Add comments to explain non-obvious parts of your code.
++- Keep comments concise and relevant.
++
++**Example:**
++
++```python
++# Calculate the average salary
++average_salary = total_salary / number_of_employees
++```
++
++#### Commenting Complex Logic
++
++When implementing complex algorithms or logic, add comments to explain the steps.
++
++**Example: Explaining a bonus calculation algorithm**
++
++```python
++# Loop through each employee to calculate bonuses
++for emp_id, details in employees.items():
++    salary = details['salary']
++    # Calculate bonus as 10% of salary
++    bonus = salary * 0.10
++    # Add the bonus to the employee's details
++    details['bonus'] = bonus
++```
++
++### Following Style Guidelines
++
++- Use consistent naming conventions (`snake_case` for variables and functions).
++- Avoid overly long lines; keep them under 80 characters when possible.
++- Separate code into logical sections with blank lines.
++
++---
++
++## 10. Additional Tips
++
++### Testing Your Code
++
++- Regularly test your code with different inputs to ensure it works correctly.
++
++### Debugging
++
++- Use print statements or a debugger to trace and fix issues.
++
++### Asking for Help
++
++- If you're stuck, don't hesitate to reach out to a peer or mentor.
++
++### Handling Data Carefully
++
++- Be cautious when manipulating data to avoid unintended consequences.
++- Ensure that you understand the data structure before performing operations.
++
++---
++
++## 11. Conclusion
++
++This guide covers the essential Python concepts you'll need for your data analysis projects. Refer back to these sections as you work through your code. Remember, practice and persistence are key to becoming proficient in programming.
++
++Good luck with your projects, and happy coding!
++
++---
++
++_This guide is intended for internal use by OmniCo team members. Please handle the material responsibly and maintain confidentiality._
+diff --git a/main.py b/main.py
+new file mode 100644
+index 0000000..3dfaec2
+--- /dev/null
++++ b/main.py
+@@ -0,0 +1,77 @@
++# =============================================================================
++# OmniCo Confidential
++# -------------------
++# This source code contains proprietary information of OmniCo.
++# =============================================================================
++
++def main():
++    # Initialize the stats dictionary for each algorithm
++    stats = {
++        'JoyStream': {
++            'total_happiness': 0,
++            'total_duration': 0,
++            'session_count': 0
++        },
++        'SerenityFlow': {
++            'total_happiness': 0,
++            'total_duration': 0,
++            'session_count': 0
++        },
++        'DeepPulse': {
++            'total_happiness': 0,
++            'total_duration': 0,
++            'session_count': 0
++        }
++    }
++
++    # Open the CSV file and read data
++    with open('euphoria_data.csv', 'r') as file:
++        # Skip the header line
++        header = file.readline()
++
++        # Read each line in the file
++        for line in file:
++            # Remove any trailing whitespace characters like newline
++            line = line.strip()
++
++            # Split the line into a list of values
++            columns = line.split(',')
++
++            # Assign each column to a variable
++            user_id = columns[0]
++            algorithm = columns[1]
++
++            # TODO: Define session_duration and happiness_rating variables and convert them to integers
++            # Hint: Use the int() function to convert strings to integers
++            # session_duration = ?
++            # happiness_rating = ?
++
++            # Update stats based on the algorithm
++            if algorithm in stats:
++                stats[algorithm]['total_happiness'] += happiness_rating
++                stats[algorithm]['total_duration'] += session_duration
++                stats[algorithm]['session_count'] += 1
++            else:
++                # Handle any unexpected algorithm names
++                print(f"Unknown algorithm: {algorithm}")
++
++    # TODO: Calculate averages for each algorithm
++    # For each algorithm in the stats dictionary:
++    #   - Calculate avg_happiness = total_happiness / session_count
++    #   - Calculate avg_duration = total_duration / session_count
++    #   - Store these back into the stats dictionary under 'avg_happiness' and 'avg_duration'
++
++    # TODO: Determine the algorithm with the highest average happiness rating
++    # Initialize variables to keep track of the highest average happiness and the corresponding algorithm
++    # Loop through stats to compare avg_happiness values
++
++    # TODO: Determine the algorithm with the longest average session duration
++    # Initialize variables to keep track of the longest average duration and the corresponding algorithm
++    # Loop through stats to compare avg_duration values
++
++    # TODO: Print the report
++    # Use print statements to display the results in a formatted way
++    # Follow the structure provided in the example output
++
++if __name__ == "__main__":
++    main()
+\ No newline at end of file
+diff --git a/readme.md b/readme.md
+new file mode 100644
+index 0000000..58c3e66
+--- /dev/null
++++ b/readme.md
+@@ -0,0 +1,234 @@
++# Data Analysis Simulation Assignment
++
++{{user.first_name }}, it's your first day at OmniCo and you open your email to see the following message:
++
++<div style="display: flex; flex-direction: column; border: 1px solid #ddd; font-size: 16px; font-family: sans-serif; line-height: 1.2em; box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;">
++<div style="border-bottom: 1px solid #ddd; width: 100%; padding: 10px 20px; color: #666;">From: Sophia Lewis (sophia.lewis@omni.co)</div>
++<div style="border-bottom: 1px solid #ddd; width: 100%; padding: 10px 20px; color: #666;">Subject: Analyzing Euphoria's User Engagement Data</div>
++<div style="padding:20px 40px;">
++Dear {{user.first_name}},
++
++Welcome to your first day at OmniCo! I hope you're settling in well.
++
++I have an important task for you regarding our social VR platform, **Euphoria**. We've recently implemented three different content feed algorithms to see how they affect user engagement and mood:
++
++- **JoyStream**: Focuses on positive and uplifting content
++- **SerenityFlow**: Delivers calming and peaceful experiences
++- **DeepPulse**: Presents a wider range of emotional content
++
++We've collected data from user sessions with each algorithm, and I'd like you to analyze this information to help us understand which algorithm is performing best.
++
++I've added a data file called `euphoria_data.csv` to your repository. It contains information about each user session, including which algorithm was used, how long the session lasted, and the user's happiness rating after the session.
++
++Please analyze this data and prepare a report with your findings. We're particularly interested in which algorithm produces the highest happiness ratings and which one keeps users engaged for the longest time.
++
++Looking forward to your insights!
++
++Best regards,
++
++Sophia Lewis
++Lead Research Analyst
++OmniVerse Division, OmniCo
++
++<div style="font-size: 11px; color: #666">
++CONFIDENTIALITY NOTICE: This message contains proprietary information of OmniCo and is protected by the OmniCo Cybernetic Legal AI (CLAIR) system. Unauthorized use or disclosure is strictly prohibited.
++</div>
++
++</div>
++</div>
++
++---
++
++# Project Instructions
++
++In this assignment, you'll work with a real-world scenario where you need to analyze data to help make business decisions. You'll practice new skills including:
++
++- Reading data from CSV files
++- Processing and analyzing the data
++- Calculating statistics
++- Presenting findings in a professional format
++
++## Learning Objectives
++
++- Understand how to read and parse data from files
++- Apply programming concepts to solve real data problems
++- Calculate and interpret basic statistics
++- Present findings effectively
++
++## Getting Started
++
++1. **Set Up Your Project**
++
++   - Clone the repository from the [classroom link](https://classroom.github.com/a/2DJMmKAd)
++   - Open a new window in VSCode (File > New Window)
++   - Click the Source Panel (branch icon) and then "Clone Repository"
++   - Paste in the URL and select a location to save the repository
++   - Open the repository folder in VSCode
++   - Add your name to the top part of your `report.md` and commit/push it back to Github
++
++2. **Understanding the Data**
++   - The file `euphoria_data.csv` contains the following columns:
++     - `user_id`: A unique identifier for each user
++     - `algorithm`: Which content algorithm was used (JoyStream, SerenityFlow, or DeepPulse)
++     - `session_duration`: How long the user session lasted, in minutes
++     - `happiness_rating`: The user's self-reported happiness rating after the session (1-10 scale)
++
++## Step-by-Step Tutorial
++
++### Step 1: Understanding File I/O in Python
++
++In Python, we can read data from files using the `open()` function. For CSV files, we typically:
++
++1. Open the file
++2. Read each line
++3. Process the data in each line
++4. Close the file when finished
++
++Here's how we open and read a file:
++
++```python
++# Open the file in read mode ('r')
++with open('filename.csv', 'r') as file:
++    # The 'with' statement automatically closes the file when the block ends
++
++    # Read the header line (column names)
++    header = file.readline()
++
++    # Read the rest of the lines
++    for line in file:
++        # Process each line here
++        print(line)  # This will print each line with newline characters
++
++        # To remove whitespace and newline characters:
++        clean_line = line.strip()
++        print(clean_line)
++```
++
++### Step 2: Parsing CSV Data
++
++CSV (Comma-Separated Values) files store data as text with values separated by commas. To parse each line:
++
++```python
++# Split the line into values using comma as separator
++columns = line.split(',')
++
++# Now 'columns' is a list containing each value from the line
++# For example, if line is "101,JoyStream,45,8", then:
++# columns[0] would be "101" (user_id)
++# columns[1] would be "JoyStream" (algorithm)
++# columns[2] would be "45" (session_duration)
++# columns[3] would be "8" (happiness_rating)
++```
++
++### Step 3: Converting String Values to Numbers
++
++Values read from a file are always strings, even if they represent numbers. To perform calculations, we need to convert them to numeric types:
++
++```python
++# Convert string to integer
++session_duration = int(columns[2])
++
++# Convert string to float (for decimal numbers)
++happiness_rating = int(columns[3])
++```
++
++### Step 4: Organizing Data with Dictionaries
++
++We'll use dictionaries to store and organize our data by algorithm:
++
++```python
++# Initialize a dictionary to store statistics for each algorithm
++stats = {
++    'JoyStream': {
++        'total_happiness': 0,
++        'total_duration': 0,
++        'session_count': 0
++    },
++    'SerenityFlow': {
++        'total_happiness': 0,
++        'total_duration': 0,
++        'session_count': 0
++    },
++    'DeepPulse': {
++        'total_happiness': 0,
++        'total_duration': 0,
++        'session_count': 0
++    }
++}
++```
++
++### Step 5: Your Task - Complete the Program
++
++Now, your job is to complete the provided Python program to:
++
++1. Read the CSV data
++2. Calculate statistics for each algorithm
++3. Determine which algorithm has the highest happiness rating and longest average session duration
++4. Print a formatted report of your findings
++
++Open the file `analyze_euphoria.py` and follow the TODO comments to complete the code.
++
++## Requirements
++
++1. **Complete the Python Script**
++
++   - Follow all TODO comments in the code
++   - Calculate the following for each algorithm:
++     - Average happiness rating
++     - Total number of sessions
++     - Average session duration
++   - Identify which algorithm has the highest average happiness rating
++   - Identify which algorithm has the longest average session duration
++   - Format and print the results
++
++2. **Write a Report**
++   - Complete the `report.md` file with your findings
++   - Include your methodology and any insights you discover
++   - Make sure your report is professional and well-formatted
++
++## Example Output
++
++Your program should produce output similar to this:
++
++```plaintext
++Euphoria User Engagement Analysis Report
++----------------------------------------
++
++Average Happiness Rating per Algorithm:
++- JoyStream: 8.50
++- SerenityFlow: 7.00
++- DeepPulse: 5.00
++
++Total Number of Sessions per Algorithm:
++- JoyStream: 4
++- SerenityFlow: 3
++- DeepPulse: 3
++
++Average Session Duration per Algorithm:
++- JoyStream: 37.50 minutes
++- SerenityFlow: 30.00 minutes
++- DeepPulse: 45.00 minutes
++
++Highest Average Happiness Rating:
++- JoyStream with an average happiness rating of 8.50
++
++Longest Average Session Duration:
++- DeepPulse with an average session duration of 45.00 minutes
++```
++
++## Starter Code
++
++Use the starter code in your `main.py` file to complete this assignment.
++
++Make sure you follow the TODO comments and structure your code according to the instructions provided.
++
++## Submission Instructions
++
++When you've completed the assignment:
++
++1. Make sure your code works correctly and produces the expected output
++2. Make sure your report is complete and professional
++3. Commit and push your changes to your GitHub repository
++4. Submit the link to your repository on Canvas
++
++Good luck, and remember that this assignment is designed to help you learn how to apply programming concepts to real-world data analysis tasks!
+diff --git a/report.md b/report.md
+new file mode 100644
+index 0000000..dfb5ceb
+--- /dev/null
++++ b/report.md
+@@ -0,0 +1,50 @@
++# Euphoria User Engagement Analysis Report
++
++**Author:** [Your Name]  
++**Date:** [Submission Date]
++
++---
++
++## Introduction
++
++[Provide a brief overview of the project objectives and the importance of the analysis.]
++
++## Methodology
++
++[Describe the steps you took to perform the analysis, including any calculations and reasoning behind them.]
++
++## Results
++
++- **Average Happiness Rating per Algorithm**
++
++  - JoyStream: ...
++  - SerenityFlow: ...
++  - DeepPulse: ...
++
++- **Total Number of Sessions per Algorithm**
++
++  - JoyStream: ...
++  - SerenityFlow: ...
++  - DeepPulse: ...
++
++- **Average Session Duration per Algorithm**
++
++  - JoyStream: ... minutes
++  - SerenityFlow: ... minutes
++  - DeepPulse: ... minutes
++
++- **Highest and Lowest Performers**
++  - Highest Average Happiness Rating: ...
++  - Longest Average Session Duration: ...
++
++## Observations and Insights
++
++[Discuss any patterns, anomalies, or noteworthy findings from your analysis. Include any ethical considerations or unexpected results, especially related to the DeepPulse algorithm.]
++
++## Conclusions and Recommendations
++
++[Summarize your conclusions based on the results. Provide any recommendations for next steps or further analysis.]
++
++---
++
++_This report contains confidential information proprietary to OmniCo. Unauthorized use or disclosure is strictly prohibited._
